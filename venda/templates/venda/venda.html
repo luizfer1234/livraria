@@ -3,7 +3,44 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 
 {% block content %}
-     <h3>Venda</h3>
+<div class="container mt-5">
+    <div class="row d-flex justify-content-center g-1">
+        <div class="col-md-4">
+            <div class="product text-center"> <img src="https://images-na.ssl-images-amazon.com/images/I/81HKcvLn15L.jpg" width="250">
+                <div class="about text-left px-3">
+                    <br>
+                    <h4>O homem mais rico da babilônia</h4> <span class="text-muted">Finanças</span>
+                    <h3>R$13</h3>
+                    <button  class="btn btn-outline-secondary add-btn">Adicionar ao Carrinho</button>
+                    <a class="btn btn-outline-success" href="#">Visualizar</a>
+                </div> <span class="dot"><span class="inner-dot"><i class="fa fa-plus"></i></span></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product text-center"> <img src="https://m.media-amazon.com/images/P/B07H4WYN5M.01._SCLZZZZZZZ_SX500_.jpg" width="250">
+                <div class="about text-left px-3">
+                    <br>
+                    <h4>Pai rico, Pai pobre</h4> <span class="text-muted">Finanças</span>
+                    <h3>R$26</h3>
+                    <button  class="btn btn-outline-secondary add-btn">Adicionar ao Carrinho</button>
+                    <a class="btn btn-outline-success" href="#">Visualizar</a>
+                </div> <span class="dot"><span class="inner-dot"><i class="fa fa-plus"></i></span></span>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="product text-center"> <img src="https://m.media-amazon.com/images/P/B00A3D10JE.01._SCLZZZZZZZ_SX500_.jpg" width="250">
+                <div class="about text-left px-3">
+                    <br>
+                    <h4>O poder do hábito</h4> <span class="text-muted">Competências</span>
+                    <h3>R$36</h3>
+                    <button  class="btn btn-outline-secondary add-btn">Adicionar ao Carrinho</button>
+                    <a class="btn btn-outline-success" href="#">Visualizar</a>
+                </div> <span class="dot"><span class="inner-dot"><i class="fa fa-plus"></i></span></span>
+            </div>
+        </div>
+        
+    </div>
+</div>
 {% endblock content %}
 
 <img src="{% static 'images/carrinhocompras.jpg' %}">
