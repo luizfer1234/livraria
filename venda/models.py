@@ -1,4 +1,6 @@
+
 from django.contrib.auth.models import User
+from django.db import models
 
 class Consumidor(models.Model):
 	usuario = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
@@ -12,9 +14,22 @@ class Livro(models.Model):
     nome = models.CharField(max_length=200)
     preco = models.FloatField()
     digital = models.BooleanField(default=False,null=True, blank=True)
+    imagem = models.ImageField(null=True, blank=True)
     
     def __str__(self):
         return self.nome
+    
+    @property
+    def URLimagem(self):
+        try:
+            url = self.imagem.url
+        except:
+            url = ''
+        return url
+
+
+
+
 
 class Ordem(models.Model):
 	consumidor = models.ForeignKey(Consumidor, on_delete=models.SET_NULL, null=True, blank=True)

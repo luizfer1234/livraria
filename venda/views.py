@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from .models import *
 
 def venda(request):
-    context = {}
+    livros = Livro.objects.all()
+    context = {'livros':livros}
     return render(request, 'venda/venda.html', context)
 
 def carrinhocompras(request):
