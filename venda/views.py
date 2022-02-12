@@ -4,6 +4,8 @@ import json
 import datetime
 from .models import * 
 from .utils import cookieCart, cartData, guestOrder
+from allauth.account.views import SignupView, LoginView
+
 
 def store(request):
 	data = cartData(request)
@@ -90,3 +92,9 @@ def processOrder(request):
 		)
 
 	return JsonResponse('Payment submitted..', safe=False)
+
+class MySignupView(SignupView):
+    template_name = 'my_signup.html'
+    
+class MyLoginView(LoginView):
+    template_name = 'account/login.html'

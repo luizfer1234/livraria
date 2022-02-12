@@ -74,7 +74,7 @@ console.log('Cart:', cart)
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     
-                    <li><a href="#"><button class="btn btn-warning"></span> Login</a></li>
+                    <li><a href="{% url 'login' %}"><button class="btn btn-warning"></span> Login</a></li>
                     <li><a href="{% url 'cart' %}">
                         <img  id="icone-carrinho" src="{% static 'images/carrinhocompras.jpg' %}">
                     </a></li>

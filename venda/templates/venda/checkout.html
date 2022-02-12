@@ -16,7 +16,7 @@
 					
 					<div id="shipping-info">
 						<hr>
-						<p>Shipping Information:</p>
+						<p>Informações para o envio:</p>
 						<hr>
 						<div class="form-field">
 							<input class="form-control" type="text" name="address" placeholder="Address..">
@@ -42,17 +42,17 @@
 
 			<br>
 			<div class="box-element hidden" id="payment-info">
-				<small>Paypal Options</small>
-				<button id="make-payment">Make payment</button>
+				<small>Opções de Pagamento</small>
+				<button id="make-payment">Fazer Pagamento</button>
 			</div>
 			
 		</div>
 
 		<div class="col-lg-6">
 			<div class="box-element">
-				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Back to Cart</a>
+				<a  class="btn btn-outline-dark" href="{% url 'cart' %}">&#x2190; Voltar ao Carrinho</a>
 				<hr>
-				<h3>Order Summary</h3>
+				<h3>Resumo do Pedido</h3>
 				<hr>
 				{% for item in items %}
 				<div class="cart-row">
@@ -63,7 +63,7 @@
 				</div>
 				{% endfor %}
 				<h5>Items:   {{order.get_cart_items}}</h5>
-				<h5>Total:   ${{order.get_cart_total|floatformat:2}}</h5>
+				<h5>Total:   R${{order.get_cart_total|floatformat:2}}</h5>
 			</div>
 		</div>
 	</div>
