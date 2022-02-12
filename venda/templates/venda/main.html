@@ -73,8 +73,12 @@ console.log('Cart:', cart)
                  
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    
+                  {% if user.is_authenticated %}
+                  <a class="navbar-brand" href="{% url 'store' %}">Bem vindo {{ user.username }} !</a>
+                  <li><a href="{% url 'logout' %}"><button class="btn btn-warning"></span> Sair</a></li>
+                  {% else %}
                     <li><a href="{% url 'login' %}"><button class="btn btn-warning"></span> Login</a></li>
+                  {% endif %}
                     <li><a href="{% url 'cart' %}">
                         <img  id="icone-carrinho" src="{% static 'images/carrinhocompras.jpg' %}">
                     </a></li>

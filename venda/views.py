@@ -4,7 +4,7 @@ import json
 import datetime
 from .models import * 
 from .utils import cookieCart, cartData, guestOrder
-from allauth.account.views import SignupView, LoginView
+from allauth.account.views import SignupView, LoginView, LogoutView
 
 
 def store(request):
@@ -98,3 +98,12 @@ class MySignupView(SignupView):
     
 class MyLoginView(LoginView):
     template_name = 'account/login.html'
+    
+class MyLogoutView(LogoutView):
+    template_name = 'account/logout.html'
+    
+def bookdetail(request,id):
+    book = Product.objects.get(id=id)
+    context = {'book':book}
+    
+    return render(request, 'venda/book.html', context)
