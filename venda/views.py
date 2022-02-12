@@ -1,15 +1,32 @@
 from django.shortcuts import render
-from .models import *
+from .models import * 
 
-def venda(request):
-    livros = Livro.objects.all()
-    context = {'livros':livros}
-    return render(request, 'venda/venda.html', context)
+def store(request):
+	products = Product.objects.all()
+	context = {'products':products}
+	return render(request, 'venda/store.html', context)
 
-def carrinhocompras(request):
-    context = {}
-    return render(request, 'venda/carrinhocompras.html', context)
+def cart(request):
 
-def finalizarpedido(request):
-    context = {}
-    return render(request, 'venda/finalizarpedido.html', context)
+	if request.user.is_authenticated:
+		customer = request.user.customer
+		order, created = Order.objects.get_or_create(customer=customer, complete=False)
+		items = order.orderitem_set.all()
+	else:
+		items = []
+		order = {'get_cart_total':0, 'get_cart_items':0}
+
+	context = {'items':items, 'order':order}
+	return render(request, 'venda/cart.html', context)
+
+def checkout(request):
+	if request.user.is_authenticated:
+		customer = request.user.customer
+		order, created = Order.objects.get_or_create(customer=customer, complete=False)
+		items = order.orderitem_set.all()
+	else:
+		items = []
+		order = {'get_cart_total':0, 'get_cart_items':0}
+
+	context = {'items':items, 'order':order}
+	return render(request, 'venda/checkout.html', context)
